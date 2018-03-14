@@ -1,4 +1,4 @@
-package APIUtils
+package tripismapiutilities
 
 import (
 	"bytes"

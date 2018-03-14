@@ -1,4 +1,4 @@
-package APIUtils
+package tripismapiutilities
 
 // AES Encrypt/Decrypt utils
 // Stolen from http://codereview.stackexchange.com/questions/125846/encrypting-strings-in-golang
