@@ -7,7 +7,7 @@ import (
 	"net/url"
 	"strings"
 
-	"gopkg.in/mgo.v2/bson"
+	"github.com/globalsign/mgo/bson"
 )
 
 // GetAvatarImageDataFromURL retrieves the avatar image data from the avatar_url specified
