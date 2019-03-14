@@ -63,20 +63,20 @@ func RegExSearchAllStartsWith(search string) string {
 // StartsWithVowel checks if a string starts with a voewel
 func StartsWithVowel(s string) bool {
 	if len(s) > 0 {
-		s_token := Tokenize(s)
-		if strings.HasPrefix(s_token, "a") {
+		sToken := Tokenize(s)
+		if strings.HasPrefix(sToken, "a") {
 			return true
 		}
-		if strings.HasPrefix(s_token, "e") {
+		if strings.HasPrefix(sToken, "e") {
 			return true
 		}
-		if strings.HasPrefix(s_token, "i") {
+		if strings.HasPrefix(sToken, "i") {
 			return true
 		}
-		if strings.HasPrefix(s_token, "o") {
+		if strings.HasPrefix(sToken, "o") {
 			return true
 		}
-		if strings.HasPrefix(s_token, "u") {
+		if strings.HasPrefix(sToken, "u") {
 			return true
 		}
 	}

@@ -4,7 +4,7 @@ import (
 	"runtime"
 )
 
-// getMaxProcs returns the maximum processor count allocation for running GoRoutines
+// GetMaxProcs returns the maximum processor count allocation for running GoRoutines based on the hardware availability
 func GetMaxProcs(requestedValue int) int {
 	currentNumProc := runtime.NumCPU()
 

@@ -10,11 +10,11 @@ import (
 	"github.com/globalsign/mgo/bson"
 )
 
-// GetAvatarImageDataFromURL retrieves the avatar image data from the avatar_url specified
-func GetAvatarImageDataFromURL(avatar_url string) (bson.Binary, string, error) {
+// GetAvatarImageDataFromURL retrieves the avatar image data from the avatarURL specified
+func GetAvatarImageDataFromURL(avatarURL string) (bson.Binary, string, error) {
 	var noData bson.Binary
 	// Parse the remote URL
-	u, err := url.Parse(avatar_url)
+	u, err := url.Parse(avatarURL)
 	if err != nil {
 		return noData, "", err
 	}
@@ -31,7 +31,7 @@ func GetAvatarImageDataFromURL(avatar_url string) (bson.Binary, string, error) {
 			loc := res.Header.Get("location")
 			if len(loc) > 0 {
 				// Recursively call method to allow following redirect
-				recdata, rectype, err := GetAvatarImageDataFromURL(avatar_url)
+				recdata, rectype, err := GetAvatarImageDataFromURL(avatarURL)
 				if err != nil {
 					return noData, "", err
 				}
@@ -41,42 +41,42 @@ func GetAvatarImageDataFromURL(avatar_url string) (bson.Binary, string, error) {
 		}
 		// Return error to calling function and handle default image handler
 		return noData, "", errors.New("Received " + res.Status + "back from server")
-	} else {
-		// We read all the bytes of the image
-		// Types: data []byte
-		data, err := ioutil.ReadAll(res.Body)
-		if err != nil {
-			return noData, "", errors.New("Unable to read content of response")
-		}
-		// Work out what the content type returned was from the Content-Type header
-		contentType := res.Header.Get("Content-Type")
-		imgformat := "gif"
-		switch contentType {
-		case "image/gif":
-			imgformat = "gif"
-		case "image/jpg":
-			imgformat = "jpeg"
-		case "image/jpeg":
-			imgformat = "jpeg"
-		case "image/png":
-			imgformat = "png"
-		default:
-			// Couldn't determine mime type - try and extract from URL end of path
-			if strings.HasSuffix(u.String(), ".gif") {
-				imgformat = "gif"
-			} else if strings.HasSuffix(u.String(), ".jpg") {
-				imgformat = "jpeg"
-			} else if strings.HasSuffix(u.String(), ".jpeg") {
-				imgformat = "jpeg"
-			} else if strings.HasSuffix(u.String(), ".png") {
-				imgformat = "png"
-			}
-		}
-
-		var imageData bson.Binary
-		imageData.Kind = 0x00
-		imageData.Data = data
-
-		return imageData, imgformat, nil
 	}
+
+	// We read all the bytes of the image
+	// Types: data []byte
+	data, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		return noData, "", errors.New("Unable to read content of response")
+	}
+	// Work out what the content type returned was from the Content-Type header
+	contentType := res.Header.Get("Content-Type")
+	imgformat := "gif"
+	switch contentType {
+	case "image/gif":
+		imgformat = "gif"
+	case "image/jpg":
+		imgformat = "jpeg"
+	case "image/jpeg":
+		imgformat = "jpeg"
+	case "image/png":
+		imgformat = "png"
+	default:
+		// Couldn't determine mime type - try and extract from URL end of path
+		if strings.HasSuffix(u.String(), ".gif") {
+			imgformat = "gif"
+		} else if strings.HasSuffix(u.String(), ".jpg") {
+			imgformat = "jpeg"
+		} else if strings.HasSuffix(u.String(), ".jpeg") {
+			imgformat = "jpeg"
+		} else if strings.HasSuffix(u.String(), ".png") {
+			imgformat = "png"
+		}
+	}
+
+	var imageData bson.Binary
+	imageData.Kind = 0x00
+	imageData.Data = data
+
+	return imageData, imgformat, nil
 }
