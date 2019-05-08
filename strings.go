@@ -22,8 +22,8 @@ func TitleCase(s string) string {
 	return strings.Join(words, " ")
 }
 
-// FirstCharacters returns only the specified number of characters starting from the first letter of the provided string.
-func FirstCharacters(s string, i int) string {
+// LeftCharacters returns only the specified number of characters starting from the first letter of the provided string.
+func LeftCharacters(s string, i int) string {
 	if len(s) == 0 {
 		return s
 	}
@@ -33,8 +33,8 @@ func FirstCharacters(s string, i int) string {
 	return s[:i]
 }
 
-// LastCharacters returns only the specified number of characters starting from the last letter of the provided string.
-func LastCharacters(s string, i int) string {
+// RemoveLeftCharacters returns the remainder of a string after the first letters specified have been removed
+func RemoveLeftCharacters(s string, i int) string {
 	if len(s) == 0 {
 		return s
 	}
