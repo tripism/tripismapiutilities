@@ -54,3 +54,24 @@ func Truncate(s string, i int) string {
 	}
 	return s[:i]
 }
+
+// TruncateToWholeWord truncates a string to the first word boundary denoted by a space less than the length specified in i
+func TruncateToWholeWord(s string, i int) string {
+	if len(s) == 0 {
+		return s
+	}
+	if len(s) < i {
+		return s
+	}
+	var b strings.Builder
+	sArray := strings.Split(s[:i], " ")
+	for i, s = range sArray {
+		//Ignore the last truncated word
+		if i == len(sArray)-1 {
+			break
+		}
+		b.WriteString(s)
+		b.WriteString(" ")
+	}
+	return b.String()
+}
