@@ -43,3 +43,14 @@ func RemoveLeftCharacters(s string, i int) string {
 	}
 	return s[i:]
 }
+
+// Truncate truncates a string to the first count of characters specified in i
+func Truncate(s string, i int) string {
+	if len(s) == 0 {
+		return s
+	}
+	if len(s) < i {
+		return s
+	}
+	return s[:i]
+}
