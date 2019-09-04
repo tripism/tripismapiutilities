@@ -37,17 +37,17 @@ func GetAvatarImageDataFromURL(avatarURL string) (bson.Binary, string, error) {
 				}
 				return recdata, rectype, nil
 			}
-			return noData, "", errors.New("Unable to follow redirect from remote server")
+			return noData, "", errors.New("unable to follow redirect from remote server")
 		}
 		// Return error to calling function and handle default image handler
-		return noData, "", errors.New("Received " + res.Status + "back from server")
+		return noData, "", errors.New("received " + res.Status + "back from server")
 	}
 
 	// We read all the bytes of the image
 	// Types: data []byte
 	data, err := ioutil.ReadAll(res.Body)
 	if err != nil {
-		return noData, "", errors.New("Unable to read content of response")
+		return noData, "", errors.New("unable to read content of response")
 	}
 	// Work out what the content type returned was from the Content-Type header
 	contentType := res.Header.Get("Content-Type")

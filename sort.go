@@ -24,7 +24,7 @@ func Sort2BSON(fields []string) (order bson.D, err error) {
 			}
 		}
 		if field == "" {
-			err = errors.New("Sort: empty field name")
+			err = errors.New("empty field name")
 			return
 		}
 		order = append(order, bson.DocElem{Name: field, Value: n})

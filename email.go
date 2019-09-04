@@ -9,8 +9,5 @@ var emailRegexp = regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0
 
 // ValidateEmail performs a regular expression check against a given email address
 func ValidateEmail(email string) bool {
-	if !emailRegexp.MatchString(email) {
-		return false
-	}
-	return true
+	return emailRegexp.MatchString(email)
 }
