@@ -4,12 +4,20 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "staticcheck",
+            "label": "staticcheck-stylish",
             "type": "shell",
-            "command": "staticcheck",
+            "command": "staticcheck -go 1.11 -f stylish",
             "problemMatcher": [
                 "$go"
             ]
-        }
+        },
+        {
+            "label": "staticcheck",
+            "type": "shell",
+            "command": "staticcheck -go 1.11",
+            "problemMatcher": [
+                "$go"
+            ]
+        }        
     ]
 }
