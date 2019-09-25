@@ -1,6 +1,10 @@
 package tripismapiutilities
 
-import "strings"
+import (
+	"bytes"
+	"fmt"
+	"strings"
+)
 
 // TitleCase returns title cased string :) all letters that begin words mapped to their title case.
 // Certain small words are skipped to ensure grammatical correctness.
@@ -72,6 +76,15 @@ func TruncateToWholeWord(s string, i int) string {
 		}
 		b.WriteString(s)
 		b.WriteString(" ")
+	}
+	return b.String()
+}
+
+// ConvertMapToString creates formatted string with key-value pairs from map[string]string
+func ConvertMapToString(m map[string]string) string {
+	b := new(bytes.Buffer)
+	for key, value := range m {
+		fmt.Fprintf(b, "%s=\"%s\",\n", key, value)
 	}
 	return b.String()
 }
