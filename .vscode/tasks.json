@@ -6,7 +6,7 @@
         {
             "label": "staticcheck-stylish",
             "type": "shell",
-            "command": "staticcheck -go 1.11 -f stylish",
+            "command": "staticcheck -f stylish",
             "problemMatcher": [
                 "$go"
             ]
@@ -14,7 +14,7 @@
         {
             "label": "staticcheck",
             "type": "shell",
-            "command": "staticcheck -go 1.11",
+            "command": "staticcheck",
             "problemMatcher": [
                 "$go"
             ]

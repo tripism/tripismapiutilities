@@ -11,6 +11,6 @@ func CalculateSHA512(s string) string {
 		return ""
 	}
 	hasher := sha512.New()
-	hasher.Write([]byte(s))
+	_, _ = hasher.Write([]byte(s))
 	return fmt.Sprintf("%x", hasher.Sum(nil))
 }
