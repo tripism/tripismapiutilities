@@ -27,7 +27,7 @@ const (
 // HTTPHeaderGetDeviceChannel validates and returns the value of the header X-Tripism-Channel from an HTTP Request
 func HTTPHeaderGetDeviceChannel(r *http.Request) (string, error) {
 	if r == nil {
-		return "", errors.New("Missing r parameter")
+		return "", errors.New("missing r parameter")
 	}
 
 	header := strings.ToUpper(strings.TrimSpace(r.Header.Get(HTTPHeaderDeviceChannel)))
@@ -36,7 +36,7 @@ func HTTPHeaderGetDeviceChannel(r *http.Request) (string, error) {
 	}
 
 	if !(header == HTTPHeaderDeviceChannelDesktop || header == HTTPHeaderDeviceChannelMobile) {
-		return "", errors.New("Invalid header parameter " + header)
+		return "", errors.New("invalid header parameter " + header)
 	}
 
 	return header, nil
