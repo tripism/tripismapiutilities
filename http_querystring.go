@@ -16,27 +16,27 @@ const (
 )
 
 // HTTPGetQueryStringParameter validates and returns a query string parameter
-func HTTPGetQueryStringParameter(r *http.Request, p string, required bool, requiredCase HTTPGetQueryStringParameterCase) (string, error) {
+func HTTPGetQueryStringParameter(r *http.Request, key string, required bool, requiredCase HTTPGetQueryStringParameterCase) (string, error) {
 	if r == nil {
 		return "", errors.New("missing r parameter")
 	}
-	if p == "" {
-		return "", errors.New("missing p parameter")
+	if key == "" {
+		return "", errors.New("missing key parameter")
 	}
 
 	q := r.URL.Query()
 
-	qp := strings.TrimSpace(q.Get(p))
+	qkey := strings.TrimSpace(q.Get(key))
 
-	if len(qp) == 0 && required {
-		return "", errors.New("missing required parameter " + p)
+	if len(qkey) == 0 && required {
+		return "", errors.New("missing required parameter " + key)
 	}
 
 	if requiredCase == ParameterCaseUpper {
-		return strings.ToUpper(qp), nil
+		return strings.ToUpper(qkey), nil
 	} else if requiredCase == ParameterCaseLower {
-		return strings.ToLower(qp), nil
+		return strings.ToLower(qkey), nil
 	}
 
-	return qp, nil
+	return qkey, nil
 }
