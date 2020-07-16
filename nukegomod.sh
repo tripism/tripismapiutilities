@@ -5,3 +5,4 @@ rm -rf go.sum
 go mod init
 go build
 go test
+go mod tidy
