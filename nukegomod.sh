@@ -6,3 +6,4 @@ go mod init
 go build
 go test
 go mod tidy
+
