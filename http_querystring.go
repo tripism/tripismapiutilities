@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+// HTTPGetQueryStringParameterCase is a parameter to convert parameter values to UPPER, lower or None
 type HTTPGetQueryStringParameterCase string
 
 // Determine if the parameter value should be converted to upper, lower or left as input

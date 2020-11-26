@@ -11,13 +11,13 @@ func CurrencySymbolFromCurrencyISO(currencyISO string) string {
 	}
 	switch strings.ToUpper(currencyISO) {
 	case "AED":
-		return "فلس"
+		return "د.إ"
 	case "AFN":
 		return "؋"
 	case "ALL":
 		return "Lek"
 	case "AMD":
-		return "dram"
+		return "֏"
 	case "ANG":
 		return "ƒ"
 	case "AOA":
@@ -27,9 +27,9 @@ func CurrencySymbolFromCurrencyISO(currencyISO string) string {
 	case "AUD":
 		return "$"
 	case "AWG":
-		return "ƒ"
+		return "Afl."
 	case "AZN":
-		return "ман"
+		return "₼"
 	case "BAM":
 		return "KM"
 	case "BBD":
@@ -37,7 +37,7 @@ func CurrencySymbolFromCurrencyISO(currencyISO string) string {
 	case "BDT":
 		return "৳"
 	case "BGN":
-		return "лв"
+		return "лв."
 	case "BHD":
 		return ".د.ب"
 	case "BIF":
@@ -47,7 +47,7 @@ func CurrencySymbolFromCurrencyISO(currencyISO string) string {
 	case "BND":
 		return "$"
 	case "BOB":
-		return "$b"
+		return "Bs"
 	case "BRL":
 		return "R$"
 	case "BSD":
@@ -57,9 +57,7 @@ func CurrencySymbolFromCurrencyISO(currencyISO string) string {
 	case "BWP":
 		return "P"
 	case "BYN":
-		return "p."
-	case "BYR":
-		return "p."
+		return "Br"
 	case "BZD":
 		return "BZ$"
 	case "CAD":
@@ -77,7 +75,7 @@ func CurrencySymbolFromCurrencyISO(currencyISO string) string {
 	case "CRC":
 		return "₡"
 	case "CUC":
-		return "₱"
+		return "CUC$"
 	case "CUP":
 		return "₱"
 	case "CVE":
@@ -87,15 +85,15 @@ func CurrencySymbolFromCurrencyISO(currencyISO string) string {
 	case "DJF":
 		return "Fdj"
 	case "DKK":
-		return "kr"
+		return "kr."
 	case "DOP":
 		return "RD$"
 	case "DZD":
-		return "دج"
+		return "DA"
 	case "EGP":
 		return "£"
 	case "ERN":
-		return "Nfk"
+		return "Nkf"
 	case "ETB":
 		return "Br"
 	case "EUR":
@@ -137,15 +135,15 @@ func CurrencySymbolFromCurrencyISO(currencyISO string) string {
 	case "INR":
 		return "₹"
 	case "IQD":
-		return "ع.د"
+		return "د.ع"
 	case "IRR":
-		return "IRR"
+		return "﷼"
 	case "ISK":
 		return "kr"
 	case "JMD":
 		return "J$"
 	case "JOD":
-		return "ينار"
+		return "د.أ"
 	case "JPY":
 		return "¥"
 	case "KES":
@@ -161,17 +159,17 @@ func CurrencySymbolFromCurrencyISO(currencyISO string) string {
 	case "KRW":
 		return "₩"
 	case "KWD":
-		return "K.D."
+		return "ك"
 	case "KYD":
 		return "$"
 	case "KZT":
-		return "лв"
+		return "₸"
 	case "LAK":
 		return "₭"
 	case "LBP":
-		return "£"
+		return "ل.ل"
 	case "LKR":
-		return "Rs"
+		return "₨"
 	case "LRD":
 		return "$"
 	case "LSL":
@@ -179,15 +177,15 @@ func CurrencySymbolFromCurrencyISO(currencyISO string) string {
 	case "LYD":
 		return "LD"
 	case "MAD":
-		return ".م."
+		return "DH"
 	case "MDL":
-		return "MDL"
+		return "L"
 	case "MGA":
 		return "Ar"
 	case "MKD":
 		return "ден"
 	case "MMK":
-		return "L"
+		return "K"
 	case "MNT":
 		return "₮"
 	case "MOP":
@@ -195,7 +193,7 @@ func CurrencySymbolFromCurrencyISO(currencyISO string) string {
 	case "MRO":
 		return "UM"
 	case "MUR":
-		return "Rs"
+		return "₨"
 	case "MVR":
 		return "Rf"
 	case "MWK":
@@ -207,19 +205,19 @@ func CurrencySymbolFromCurrencyISO(currencyISO string) string {
 	case "MZN":
 		return "MT"
 	case "NAD":
-		return "N$"
+		return "$"
 	case "NGN":
-		return "XXX"
-	case "NIO":
 		return "₦"
+	case "NIO":
+		return "C$"
 	case "NOK":
 		return "kr"
 	case "NPR":
-		return "Rs"
+		return "₨"
 	case "NZD":
 		return "$"
 	case "OMR":
-		return "OMR"
+		return "﷼"
 	case "PAB":
 		return "B/."
 	case "PEN":
@@ -227,35 +225,35 @@ func CurrencySymbolFromCurrencyISO(currencyISO string) string {
 	case "PGK":
 		return "K"
 	case "PHP":
-		return "Php"
+		return "₱"
 	case "PKR":
-		return "Rs"
+		return "₨"
 	case "PLN":
 		return "zł"
 	case "PYG":
 		return "Gs"
 	case "QAR":
-		return "QAR"
+		return "﷼"
 	case "RON":
 		return "lei"
 	case "RSD":
-		return "Дин."
+		return "РСД"
 	case "RUB":
-		return "руб"
+		return "₽"
 	case "RWF":
 		return "FRw"
 	case "SAR":
-		return "SAR"
+		return "﷼"
 	case "SBD":
 		return "$"
 	case "SCR":
-		return "Rs"
+		return "₨"
 	case "SDG":
-		return "£"
+		return "£SD"
 	case "SEK":
 		return "kr"
 	case "SGD":
-		return "S$"
+		return "$"
 	case "SHP":
 		return "£"
 	case "SLL":
@@ -265,8 +263,8 @@ func CurrencySymbolFromCurrencyISO(currencyISO string) string {
 	case "SRD":
 		return "$"
 	case "SSP":
-		return "£"
-	case "STD":
+		return "SS£"
+	case "STN":
 		return "Db"
 	case "SVC":
 		return "$"
@@ -277,39 +275,39 @@ func CurrencySymbolFromCurrencyISO(currencyISO string) string {
 	case "THB":
 		return "฿"
 	case "TJS":
-		return "TJS"
+		return "cомонӣ"
 	case "TMT":
-		return "m"
+		return "T"
 	case "TND":
 		return "DT"
 	case "TOP":
 		return "T$"
 	case "TRY":
-		return "TL"
+		return "₺"
 	case "TTD":
 		return "TT$"
 	case "TWD":
 		return "NT$"
 	case "TZS":
-		return "shilingi"
+		return "TSh"
 	case "UAH":
 		return "₴"
 	case "UGX":
-		return "Ush"
+		return "USh"
 	case "USD":
 		return "$"
 	case "UYU":
 		return "$U"
 	case "UZS":
 		return "лв"
-	case "VEF":
-		return "Bs"
+	case "VES":
+		return "Bs. S"
 	case "VND":
 		return "₫"
 	case "VUV":
 		return "VT"
 	case "WST":
-		return "WS$"
+		return "$"
 	case "XAF":
 		return "FCFA"
 	case "XCD":
@@ -319,11 +317,11 @@ func CurrencySymbolFromCurrencyISO(currencyISO string) string {
 	case "XPF":
 		return "F"
 	case "YER":
-		return "YER"
+		return "﷼"
 	case "ZAR":
 		return "R"
 	case "ZMW":
-		return "ZMW"
+		return "ZK"
 	case "ZWL":
 		return "$"
 	}
@@ -344,9 +342,9 @@ func CurrencyDescriptionFromCurrencyISO(currencyISO string) string {
 	case "ALL":
 		return "Lek"
 	case "AMD":
-		return "Armenian Dram"
+		return "Dram"
 	case "ANG":
-		return "Netherlands Antillean Guilder"
+		return "Guilder"
 	case "AOA":
 		return "Kwanza"
 	case "ARS":
@@ -364,11 +362,11 @@ func CurrencyDescriptionFromCurrencyISO(currencyISO string) string {
 	case "BDT":
 		return "Taka"
 	case "BGN":
-		return "Bulgarian Lev"
+		return "Lev"
 	case "BHD":
 		return "Bahraini Dinar"
 	case "BIF":
-		return "Burundi Franc"
+		return "Burundian Franc"
 	case "BMD":
 		return "Bermudian Dollar"
 	case "BND":
@@ -380,12 +378,10 @@ func CurrencyDescriptionFromCurrencyISO(currencyISO string) string {
 	case "BSD":
 		return "Bahamian Dollar"
 	case "BTN":
-		return "Ngultrum"
+		return "Bhutanese Ngultrum"
 	case "BWP":
-		return "Pula"
+		return "Botswana Pula"
 	case "BYN":
-		return "Belarusian Ruble"
-	case "BYR":
 		return "Belarusian Ruble"
 	case "BZD":
 		return "Belize Dollar"
@@ -398,21 +394,21 @@ func CurrencyDescriptionFromCurrencyISO(currencyISO string) string {
 	case "CLP":
 		return "Chilean Peso"
 	case "CNY":
-		return "Yuan Renminbi"
+		return "Chinese Yuan"
 	case "COP":
 		return "Colombian Peso"
 	case "CRC":
 		return "Costa Rican Colon"
 	case "CUC":
-		return "Peso Convertible"
+		return "Cuban Convertible Peso"
 	case "CUP":
 		return "Cuban Peso"
 	case "CVE":
-		return "Cabo Verde Escudo"
+		return "Cape Verde Escudo"
 	case "CZK":
 		return "Czech Koruna"
 	case "DJF":
-		return "Djibouti Franc"
+		return "Djiboutian Franc"
 	case "DKK":
 		return "Danish Krone"
 	case "DOP":
@@ -422,7 +418,7 @@ func CurrencyDescriptionFromCurrencyISO(currencyISO string) string {
 	case "EGP":
 		return "Egyptian Pound"
 	case "ERN":
-		return "Nakfa"
+		return "Eritrean Nakfa"
 	case "ETB":
 		return "Ethiopian Birr"
 	case "EUR":
@@ -434,33 +430,33 @@ func CurrencyDescriptionFromCurrencyISO(currencyISO string) string {
 	case "GBP":
 		return "Pound Sterling"
 	case "GEL":
-		return "Lari"
+		return "Georgian Lari"
 	case "GHS":
-		return "Ghana Cedi"
+		return "Ghanaian Cedi"
 	case "GIP":
 		return "Gibraltar Pound"
 	case "GMD":
-		return "Dalasi"
+		return "Gambian Dalasi"
 	case "GNF":
-		return "Guinea Franc"
+		return "Guinean Franc"
 	case "GTQ":
-		return "Quetzal"
+		return "Guatemalan Quetzal"
 	case "GYD":
-		return "Guyana Dollar"
+		return "Guyanese Dollar"
 	case "HKD":
 		return "Hong Kong Dollar"
 	case "HNL":
-		return "Lempira"
+		return "Honduran Lempira"
 	case "HRK":
-		return "Kuna"
+		return "Croatian Kuna"
 	case "HTG":
-		return "Gourde"
+		return "Haitian Gourde"
 	case "HUF":
-		return "Forint"
+		return "Hungarian Forint"
 	case "IDR":
-		return "Rupiah"
+		return "Indonesian Rupiah"
 	case "ILS":
-		return "New Israeli Sheqel"
+		return "Israeli Shekel"
 	case "INR":
 		return "Indian Rupee"
 	case "IQD":
@@ -468,41 +464,41 @@ func CurrencyDescriptionFromCurrencyISO(currencyISO string) string {
 	case "IRR":
 		return "Iranian Rial"
 	case "ISK":
-		return "Iceland Krona"
+		return "Icelandic Króna"
 	case "JMD":
 		return "Jamaican Dollar"
 	case "JOD":
 		return "Jordanian Dinar"
 	case "JPY":
-		return "Yen"
+		return "Japanese Yen"
 	case "KES":
 		return "Kenyan Shilling"
 	case "KGS":
-		return "Som"
+		return "Kyrgyzstani Som"
 	case "KHR":
-		return "Riel"
+		return "Cambodian Riel"
 	case "KMF":
-		return "Comoro Franc"
+		return "Comorian Franc"
 	case "KPW":
 		return "North Korean Won"
 	case "KRW":
-		return "Won"
+		return "South Korean Won"
 	case "KWD":
 		return "Kuwaiti Dinar"
 	case "KYD":
 		return "Cayman Islands Dollar"
 	case "KZT":
-		return "Tenge"
+		return "Kazakhstani Tenge"
 	case "LAK":
-		return "Kip"
+		return "Lao Kip"
 	case "LBP":
 		return "Lebanese Pound"
 	case "LKR":
-		return "Sri Lanka Rupee"
+		return "Sri Lankan Rupee"
 	case "LRD":
 		return "Liberian Dollar"
 	case "LSL":
-		return "Loti"
+		return "Lesotho Loti"
 	case "LYD":
 		return "Libyan Dinar"
 	case "MAD":
@@ -512,33 +508,33 @@ func CurrencyDescriptionFromCurrencyISO(currencyISO string) string {
 	case "MGA":
 		return "Malagasy Ariary"
 	case "MKD":
-		return "Denar"
+		return "Macedonian Denar"
 	case "MMK":
-		return "Kyat"
+		return "Myanmar Kyat"
 	case "MNT":
-		return "Tugrik"
+		return "Mongolian Tughrik"
 	case "MOP":
-		return "Pataca"
+		return "Macanese Pataca"
 	case "MRO":
-		return "Ouguiya"
+		return "Mauritanian Ouguiya"
 	case "MUR":
-		return "Mauritius Rupee"
+		return "Mauritian Rupee"
 	case "MVR":
-		return "Rufiyaa"
+		return "Maldivian Rufiyaa"
 	case "MWK":
-		return "Malawi Kwacha"
+		return "Malawian Kwacha"
 	case "MXN":
 		return "Mexican Peso"
 	case "MYR":
 		return "Malaysian Ringgit"
 	case "MZN":
-		return "Mozambique Metical"
+		return "Mozambican Metical"
 	case "NAD":
-		return "Namibia Dollar"
+		return "Namibian Dollar"
 	case "NGN":
-		return "Naira"
+		return "Nigerian Naira"
 	case "NIO":
-		return "Cordoba Oro"
+		return "Nicaraguan Córdoba"
 	case "NOK":
 		return "Norwegian Krone"
 	case "NPR":
@@ -546,21 +542,21 @@ func CurrencyDescriptionFromCurrencyISO(currencyISO string) string {
 	case "NZD":
 		return "New Zealand Dollar"
 	case "OMR":
-		return "Rial Omani"
+		return "Omani Rial"
 	case "PAB":
-		return "Balboa"
+		return "Panamanian Balboa"
 	case "PEN":
-		return "Sol"
+		return "Peruvian Sol"
 	case "PGK":
-		return "Kina"
+		return "Papua New Guinean Kina"
 	case "PHP":
 		return "Philippine Peso"
 	case "PKR":
-		return "Pakistan Rupee"
+		return "Pakistani Rupee"
 	case "PLN":
-		return "Zloty"
+		return "Polish Złoty"
 	case "PYG":
-		return "Guarani"
+		return "Paraguayan Guaraní"
 	case "QAR":
 		return "Qatari Rial"
 	case "RON":
@@ -570,7 +566,7 @@ func CurrencyDescriptionFromCurrencyISO(currencyISO string) string {
 	case "RUB":
 		return "Russian Ruble"
 	case "RWF":
-		return "Rwanda Franc"
+		return "Rwandan Franc"
 	case "SAR":
 		return "Saudi Riyal"
 	case "SBD":
@@ -586,31 +582,31 @@ func CurrencyDescriptionFromCurrencyISO(currencyISO string) string {
 	case "SHP":
 		return "Saint Helena Pound"
 	case "SLL":
-		return "Leone"
+		return "Sierra Leonean Leone"
 	case "SOS":
 		return "Somali Shilling"
 	case "SRD":
-		return "Surinam Dollar"
+		return "Surinamese Dollar"
 	case "SSP":
 		return "South Sudanese Pound"
-	case "STD":
-		return "Dobra"
+	case "STN":
+		return "São Toméan Dobra"
 	case "SVC":
-		return "El Salvador Colon"
+		return "Salvadoran Colón"
 	case "SYP":
 		return "Syrian Pound"
 	case "SZL":
-		return "Lilangeni"
+		return "Swazi Lilangeni"
 	case "THB":
-		return "Baht"
+		return "Thai Baht"
 	case "TJS":
-		return "Somoni"
+		return "Tajikistani Somoni"
 	case "TMT":
-		return "Turkmenistan New Manat"
+		return "Turkmenistan Manat"
 	case "TND":
 		return "Tunisian Dinar"
 	case "TOP":
-		return "Pa'anga"
+		return "Tongan Pa'anga"
 	case "TRY":
 		return "Turkish Lira"
 	case "TTD":
@@ -620,23 +616,25 @@ func CurrencyDescriptionFromCurrencyISO(currencyISO string) string {
 	case "TZS":
 		return "Tanzanian Shilling"
 	case "UAH":
-		return "Hryvnia"
+		return "Ukrainian Hryvnia"
 	case "UGX":
-		return "Uganda Shilling"
+		return "Ugandan Shilling"
 	case "USD":
-		return "US Dollar"
+		return "United States Dollar"
 	case "UYU":
-		return "Peso Uruguayo"
+		return "Uruguayan Peso"
 	case "UZS":
-		return "Uzbekistan Sum"
+		return "Uzbekistan Som"
 	case "VEF":
-		return "Bolívar"
+		return "Venezuelan Bolívar"
+	case "VES":
+		return "Venezuelan Bolívar Soberano"
 	case "VND":
-		return "Dong"
+		return "Vietnamese Đồng"
 	case "VUV":
-		return "Vatu"
+		return "Vanuatu Vatu"
 	case "WST":
-		return "Tala"
+		return "Samoan Tala"
 	case "XAF":
 		return "CFA Franc BEAC"
 	case "XCD":
@@ -644,15 +642,15 @@ func CurrencyDescriptionFromCurrencyISO(currencyISO string) string {
 	case "XOF":
 		return "CFA Franc BCEAO"
 	case "XPF":
-		return "CFP Franc"
+		return "CFP Franc (Franc Pacifique)"
 	case "YER":
 		return "Yemeni Rial"
 	case "ZAR":
-		return "Rand"
+		return "South African Rand"
 	case "ZMW":
 		return "Zambian Kwacha"
 	case "ZWL":
-		return "Zimbabwe Dollar"
+		return "Zimbabwean Dollar"
 	}
 
 	return strings.ToUpper(currencyISO)
