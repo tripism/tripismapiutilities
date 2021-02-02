@@ -4,7 +4,106 @@ import (
 	"bytes"
 	"fmt"
 	"strings"
+	"unicode"
+
+	"golang.org/x/text/runes"
+	"golang.org/x/text/secure/precis"
+	"golang.org/x/text/transform"
+	"golang.org/x/text/unicode/norm"
 )
+
+// Tokenize simply turns an input string into it's lower case equivalent
+func Tokenize(s string) string {
+	s = strings.TrimSpace(s)
+	return strings.ToLower(s)
+}
+
+// TokenizeAndRemoveSpaces turns an input string into it's lower case equivalent and removes any spaces from within the string
+func TokenizeAndRemoveSpaces(s string) string {
+	if s == "" {
+		return s
+	}
+	s = strings.TrimSpace(s)
+	s = strings.ToLower(s)
+	s = strings.Replace(s, " ", "", -1)
+	return s
+}
+
+// TokenizeAndNormalize turns an input string into it's lower case equivalent then normalizes the text, appending the normalized version to the existing words (split on space) where it differs
+// For example, for an input of "Hôtel Longemalle Genève", the returned string will be "hôtel hotel longemalle genève geneve"
+func TokenizeAndNormalize(s string) string {
+	s = Tokenize(s)
+	a := strings.Split(s, " ")
+	r := []string{}
+	for _, word := range a {
+		r = append(r, word)
+		norm := RemoveAccents(word)
+		if norm != word && len(norm) > 0 {
+			r = append(r, norm)
+		}
+	}
+	return strings.Join(r, " ")
+}
+
+// RemoveAccents remove diacritics from strings to normalize - useful for tokenization of hotel names to remove accents
+func RemoveAccents(s string) string {
+	s = replaceChars(s)
+	t := transform.Chain(norm.NFD, runes.Remove(runes.In(unicode.Mn)), runes.Remove(runes.In(unicode.P)), norm.NFC)
+	output, _, e := transform.String(t, s)
+	if e != nil {
+		return s
+	}
+	o := removeAdditionalDiacritics(output)
+	return o
+}
+
+// removeAdditionalDiacritics is an internal function which handles Polish characters as well as others not caught in standard normalization library
+// taken from https://stackoverflow.com/questions/26722450/remove-diacritics-using-go
+func removeAdditionalDiacritics(s string) string {
+	t := transform.Chain(
+		norm.NFD,
+		precis.UsernameCaseMapped.NewTransformer(),
+		runes.Map(func(r rune) rune {
+			switch r {
+			// case 'ą':
+			// 	return 'a'
+			// case 'ć':
+			// 	return 'c'
+			// case 'ę':
+			// 	return 'e'
+			case 'ł':
+				return 'l'
+			// case 'ń':
+			// 	return 'n'
+			// case 'ó':
+			// 	return 'o'
+			// case 'ś':
+			// 	return 's'
+			// case 'ż':
+			// 	return 'z'
+			// case 'ź':
+			// 	return 'z'
+			case 'đ':
+				return 'd'
+			}
+			return r
+		}),
+		norm.NFC,
+	)
+	output, _, e := transform.String(t, s)
+	if e != nil {
+		return s
+	}
+	return output
+}
+
+// replaceChars replaces other diacritics which have no available singular rune conversion
+// for example, for an input of "ß", the returned string will be "ss"
+func replaceChars(s string) string {
+	s = strings.ReplaceAll(s, "ß", "ss")
+	s = strings.ReplaceAll(s, "&", "and")
+	return s
+}
 
 // TitleCase returns title cased string :) all letters that begin words mapped to their title case.
 // Certain small words are skipped to ensure grammatical correctness.

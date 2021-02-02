@@ -5,23 +5,6 @@ import (
 	"strings"
 )
 
-// Tokenize simply turns an input string into it's lower case equivalent
-func Tokenize(s string) string {
-	s = strings.TrimSpace(s)
-	return strings.ToLower(s)
-}
-
-// TokenizeAndRemoveSpaces turns an input string into it's lower case equivalent and removes any spaces from within the string
-func TokenizeAndRemoveSpaces(s string) string {
-	if s == "" {
-		return s
-	}
-	s = strings.TrimSpace(s)
-	s = strings.ToLower(s)
-	s = strings.Replace(s, " ", "", -1)
-	return s
-}
-
 // RegExSearchAny generates a fuzzy RegEx search pattern for given search text
 func RegExSearchAny(search string) string {
 	// Split search string on spaces
