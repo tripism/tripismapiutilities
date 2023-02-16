@@ -6,6 +6,8 @@ import (
 	"strings"
 	"unicode"
 
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 	"golang.org/x/text/runes"
 	"golang.org/x/text/secure/precis"
 	"golang.org/x/text/transform"
@@ -105,6 +107,11 @@ func replaceChars(s string) string {
 	return s
 }
 
+// Title is a shortcut method to calling TitleCase
+func Title(s string) string {
+	return TitleCase(s)
+}
+
 // TitleCase returns title cased string :) all letters that begin words mapped to their title case.
 // Certain small words are skipped to ensure grammatical correctness.
 // e.g. WELCOME TO THE DOLLHOUSE => Welcome to the Dollhouse
@@ -115,11 +122,13 @@ func TitleCase(s string) string {
 	words := strings.Fields(s)
 	smallwords := " a an on the to of in and "
 
+	caser := cases.Title(language.Und)
+
 	for index, word := range words {
 		if strings.Contains(smallwords, " "+word+" ") {
 			words[index] = strings.ToLower(word)
 		} else {
-			words[index] = strings.Title(strings.ToLower(word))
+			words[index] = caser.String(strings.ToLower(word))
 		}
 	}
 	return strings.Join(words, " ")
