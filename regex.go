@@ -23,6 +23,29 @@ func RegExSearchAny(search string) string {
 	return (ptn)
 }
 
+// RegExSearchOr generates a fuzzy RegEx search pattern for given search text to search across multiple values
+func RegExSearchOr(search string) string {
+	// Split search string on spaces
+	ptnS := "(?=.*"
+	ptnE := ")"
+	ptn := ""
+	ptnOR := "|"
+	// Split input string on whitespace
+	searchArr := strings.Split(search, " ")
+	// Iterate through the input string and create RegEx pattern(s)
+	for i := range searchArr {
+		if len(searchArr[i]) > 0 {
+			ptn += ptnS + searchArr[i] + ptnE
+
+			if i+1 < len(searchArr) && len(searchArr[i+1]) > 0 {
+				ptn += ptnOR
+			}
+		}
+	}
+	// Return the compiled RegEx pattern
+	return (ptn)
+}
+
 // RegExSearchAll generates a fuzzy RegEx search pattern for given search text where all match
 func RegExSearchAll(search string) string {
 	// Split search string on spaces
