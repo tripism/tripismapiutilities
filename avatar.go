@@ -2,7 +2,7 @@ package tripismapiutilities
 
 import (
 	"errors"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"strings"
@@ -45,7 +45,7 @@ func GetAvatarImageDataFromURL(avatarURL string) (bson.Binary, string, error) {
 
 	// We read all the bytes of the image
 	// Types: data []byte
-	data, err := ioutil.ReadAll(res.Body)
+	data, err := io.ReadAll(res.Body)
 	if err != nil {
 		return noData, "", errors.New("unable to read content of response")
 	}
