@@ -22,6 +22,7 @@ func CleanWebsiteQueryString(uri string) string {
 	q.Del("SEO_id")
 	q.Del("s_cid")
 	q.Del("cm_mmc")
+	q.Del("sourceid")
 
 	u.RawQuery = q.Encode()
 	return u.String()
