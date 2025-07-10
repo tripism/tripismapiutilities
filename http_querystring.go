@@ -3,6 +3,7 @@ package tripismapiutilities
 import (
 	"errors"
 	"net/http"
+	"net/url"
 	"strings"
 )
 
@@ -29,15 +30,21 @@ func HTTPGetQueryStringParameter(r *http.Request, key string, required bool, req
 
 	qkey := strings.TrimSpace(q.Get(key))
 
-	if len(qkey) == 0 && required {
+	query, err := url.QueryUnescape(qkey)
+	if err != nil {
+		return "", errors.New("failed to unescape query parameter " + key + ": " + err.Error())
+	}
+
+	if len(query) == 0 && required {
 		return "", errors.New("missing required parameter " + key)
 	}
 
-	if requiredCase == ParameterCaseUpper {
-		return strings.ToUpper(qkey), nil
-	} else if requiredCase == ParameterCaseLower {
-		return strings.ToLower(qkey), nil
+	switch requiredCase {
+	case ParameterCaseUpper:
+		return strings.ToUpper(query), nil
+	case ParameterCaseLower:
+		return strings.ToLower(query), nil
 	}
 
-	return qkey, nil
+	return query, nil
 }

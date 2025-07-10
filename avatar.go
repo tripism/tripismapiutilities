@@ -31,7 +31,7 @@ func GetAvatarImageDataFromURL(avatarURL string) (bson.Binary, string, error) {
 			loc := res.Header.Get("location")
 			if len(loc) > 0 {
 				// Recursively call method to allow following redirect
-				recdata, rectype, err := GetAvatarImageDataFromURL(avatarURL)
+				recdata, rectype, err := GetAvatarImageDataFromURL(loc)
 				if err != nil {
 					return noData, "", err
 				}

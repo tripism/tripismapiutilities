@@ -99,12 +99,9 @@ func AdjustForVowel(word string, appendword string) string {
 	return ""
 }
 
+var nonAlphaNumericRegexp = regexp.MustCompile("[^a-zA-Z0-9]+")
+
 // RemoveNonAlphaNumeric is a regex to remove any non-alphanumeric characters from a string
 func RemoveNonAlphaNumeric(s string) string {
-	// Make a Regex to say we only want alphanumeric characters
-	reg, err := regexp.Compile("[^a-zA-Z0-9]+")
-	if err != nil {
-		return s
-	}
-	return reg.ReplaceAllString(s, "")
+	return nonAlphaNumericRegexp.ReplaceAllString(s, "")
 }
