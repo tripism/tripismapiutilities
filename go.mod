@@ -1,6 +1,6 @@
 module github.com/tripism/tripismapiutilities
 
-go 1.24.2
+go 1.24.5
 
 require (
 	github.com/baloo32/gomobiledetect v0.0.0-20180927104538-128c93d815fc
