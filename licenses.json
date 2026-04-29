@@ -1,0 +1,56 @@
+[
+  {
+    "path": "github.com/baloo32/gomobiledetect",
+    "version": "v0.0.0-20180927104538-128c93d815fc",
+    "dir": "C:\\Users\\baloo\\go\\pkg\\mod\\github.com\\baloo32\\gomobiledetect@v0.0.0-20180927104538-128c93d815fc",
+    "license": "MIT"
+  },
+  {
+    "path": "github.com/cheekybits/is",
+    "version": "v0.0.0-20150225183255-68e9c0620927",
+    "dir": "C:\\Users\\baloo\\go\\pkg\\mod\\github.com\\cheekybits\\is@v0.0.0-20150225183255-68e9c0620927",
+    "license": "MIT"
+  },
+  {
+    "path": "github.com/globalsign/mgo",
+    "version": "v0.0.0-20181015135952-eeefdecb41b8",
+    "dir": "C:\\Users\\baloo\\go\\pkg\\mod\\github.com\\globalsign\\mgo@v0.0.0-20181015135952-eeefdecb41b8",
+    "license": "CUSTOM"
+  },
+  {
+    "path": "github.com/gorilla/context",
+    "version": "v1.1.2",
+    "dir": "C:\\Users\\baloo\\go\\pkg\\mod\\github.com\\gorilla\\context@v1.1.2",
+    "license": "CUSTOM"
+  },
+  {
+    "path": "github.com/kr/pretty",
+    "version": "v0.2.1",
+    "dir": "C:\\Users\\baloo\\go\\pkg\\mod\\github.com\\kr\\pretty@v0.2.1",
+    "license": "CUSTOM"
+  },
+  {
+    "path": "github.com/kr/text",
+    "version": "v0.1.0",
+    "dir": "C:\\Users\\baloo\\go\\pkg\\mod\\github.com\\kr\\text@v0.1.0",
+    "license": "CUSTOM"
+  },
+  {
+    "path": "github.com/satori/go.uuid",
+    "version": "v1.2.0",
+    "dir": "C:\\Users\\baloo\\go\\pkg\\mod\\github.com\\satori\\go.uuid@v1.2.0",
+    "license": "CUSTOM"
+  },
+  {
+    "path": "golang.org/x/text",
+    "version": "v0.36.0",
+    "dir": "C:\\Users\\baloo\\go\\pkg\\mod\\golang.org\\x\\text@v0.36.0",
+    "license": "CUSTOM"
+  },
+  {
+    "path": "gopkg.in/check.v1",
+    "version": "v1.0.0-20201130134442-10cb98267c6c",
+    "dir": "C:\\Users\\baloo\\go\\pkg\\mod\\gopkg.in\\check.v1@v1.0.0-20201130134442-10cb98267c6c",
+    "license": "CUSTOM"
+  }
+]

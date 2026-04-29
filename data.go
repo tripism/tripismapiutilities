@@ -35,6 +35,7 @@ func CleanWebsiteQueryString(uri string) string {
 	return u.String()
 }
 
+// NormalizedEntry represents a normalized cancellation policy entry with the original string, type (time, period, empty, unknown) and the normalized value.
 type NormalizedEntry struct {
 	Original string // Original string before normalization
 	Type     string // "time", "period", "empty" or "unknown"

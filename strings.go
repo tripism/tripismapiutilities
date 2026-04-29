@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"strings"
 	"unicode"
+	"unicode/utf8"
 
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
@@ -27,7 +28,7 @@ func TokenizeAndRemoveSpaces(s string) string {
 	}
 	s = strings.TrimSpace(s)
 	s = strings.ToLower(s)
-	s = strings.Replace(s, " ", "", -1)
+	s = strings.ReplaceAll(s, " ", "")
 	return s
 }
 
@@ -50,13 +51,20 @@ func TokenizeAndNormalize(s string) string {
 // RemoveAccents remove diacritics from strings to normalize - useful for tokenization of hotel names to remove accents
 func RemoveAccents(s string) string {
 	s = replaceChars(s)
-	t := transform.Chain(norm.NFD, runes.Remove(runes.In(unicode.Mn)), runes.Remove(runes.In(unicode.P)), norm.NFC)
-	output, _, e := transform.String(t, s)
-	if e != nil {
-		return s
+	t := norm.NFD.String(s)
+
+	buf := make([]byte, 0, len(t))
+
+	for i := 0; i < len(t); {
+		r, size := utf8.DecodeRuneInString(t[i:])
+		if !unicode.Is(unicode.Mn, r) {
+			buf = appendRune(buf, r)
+		}
+		i += size
 	}
-	o := removeAdditionalDiacritics(output)
-	return o
+
+	output := removeAdditionalDiacritics(string(buf))
+	return output
 }
 
 // removeAdditionalDiacritics is an internal function which handles Polish characters as well as others not caught in standard normalization library
@@ -105,6 +113,17 @@ func replaceChars(s string) string {
 	s = strings.ReplaceAll(s, "ß", "ss")
 	s = strings.ReplaceAll(s, "&", "and")
 	return s
+}
+
+// RemovePunctuation removes punctuation from a string, leaving only letters, numbers and spaces
+func RemovePunctuation(s string) string {
+	var b strings.Builder
+	for _, r := range s {
+		if unicode.IsLetter(r) || unicode.IsNumber(r) || unicode.IsSpace(r) {
+			b.WriteRune(r)
+		}
+	}
+	return b.String()
 }
 
 // Title is a shortcut method to calling TitleCase
@@ -195,4 +214,20 @@ func ConvertMapToString(m map[string]string) string {
 		fmt.Fprintf(b, "%s=\"%s\",\n", key, value)
 	}
 	return b.String()
+}
+
+// decodeRune decodes the first rune from a string and returns the rune and its size in bytes
+func decodeRune(s string) (rune, int) {
+	r, size := utf8.DecodeRuneInString(s)
+	return r, size
+}
+
+// appendRune appends a rune to a byte slice, handling multi-byte runes correctly
+func appendRune(buf []byte, r rune) []byte {
+	if r < utf8.RuneSelf {
+		return append(buf, byte(r))
+	}
+	var tmp [utf8.UTFMax]byte
+	n := utf8.EncodeRune(tmp[:], r)
+	return append(buf, tmp[:n]...)
 }
