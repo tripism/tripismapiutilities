@@ -7,7 +7,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/globalsign/mgo/bson"
+	"go.mongodb.org/mongo-driver/v2/bson"
 )
 
 // GetAvatarImageDataFromURL retrieves the avatar image data from the avatarURL specified
@@ -75,7 +75,7 @@ func GetAvatarImageDataFromURL(avatarURL string) (bson.Binary, string, error) {
 	}
 
 	var imageData bson.Binary
-	imageData.Kind = 0x00
+	imageData.Subtype = 0x00
 	imageData.Data = data
 
 	return imageData, imgformat, nil

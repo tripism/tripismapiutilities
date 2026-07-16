@@ -3,7 +3,7 @@ package tripismapiutilities
 import (
 	"errors"
 
-	"github.com/globalsign/mgo/bson"
+	"go.mongodb.org/mongo-driver/v2/bson"
 )
 
 // Sort2BSON converts sort order from []string{"-likes", "title"} to what Mongo accepts - { $sort: { likes: -1, title: 1 } }
@@ -27,7 +27,7 @@ func Sort2BSON(fields []string) (order bson.D, err error) {
 			err = errors.New("empty field name")
 			return
 		}
-		order = append(order, bson.DocElem{Name: field, Value: n})
+		order = append(order, bson.E{Key: field, Value: n})
 	}
 	return
 }
